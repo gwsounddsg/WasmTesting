@@ -37,6 +37,18 @@ extern "C" {
         return 1;
     }
 
+    int IsCategoryIdInArray(char* selectedCategoryId, int* validCategoryIds, int arrayLength) {
+        int categoryId = atoi(selectedCategoryId);
+
+        for (int i=0; i<arrayLength; i++) {
+            if (validCategoryIds[i] == categoryId) {
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
 
 #ifdef __cplusplus
 }
