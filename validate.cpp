@@ -20,6 +20,24 @@ extern "C" {
     }
 
 
+#ifdef __EMSCRIPTEN__
+    EMSCRIPTEN_KEEPALIVE
+#endif
+
+    int ValidateName(char* name, int maxLength, char* returnErrorMessage) {
+        if (ValidateValueProvided(name, "A Product Name must be provided.", returnErrorMessage) == 0) {
+            return 0;
+        }
+
+        if (strlen(name) > maxLength) {
+            strcpy(returnErrorMessage, "The Product Name is too long.");
+            return 0;
+        }
+
+        return 1;
+    }
+
+
 #ifdef __cplusplus
 }
 #endif
