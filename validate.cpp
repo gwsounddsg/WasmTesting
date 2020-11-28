@@ -37,6 +37,7 @@ extern "C" {
         return 1;
     }
 
+
     int IsCategoryIdInArray(char* selectedCategoryId, int* validCategoryIds, int arrayLength) {
         int categoryId = atoi(selectedCategoryId);
 
@@ -47,6 +48,29 @@ extern "C" {
         }
 
         return 0;
+    }
+
+
+#ifdef __EMSCRIPTEN__
+    EMSCRIPTEN_KEEPALIVE
+#endif
+
+    int ValidateCategory(char* categoryId, int* validCategoryIds, int arrayLength, char* returnErrorMessage) {
+        if (ValidateValueProvided(categoryId, "A Product Category must be selected.", returnErrorMessage) == 0) {
+            return 0;
+        }
+
+        if (validCategoryIds == NULL || arrayLength == 0) {
+            strcpy(returnErrorMessage, "The selected Product Category is not valid.");
+            return 0;
+        }
+
+        if (IsCategoryIdInArray(categoryId, validCategoryIds, arrayLength) == 0) {
+            strcpy(returnErrorMessage, "The selected Product Category is not valid.");
+            return 0;
+        }
+
+        return 1;
     }
 
 
