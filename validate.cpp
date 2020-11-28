@@ -15,6 +15,8 @@ extern "C" {
             strcpy(returnErrorMessage, errorMessage);
             return 0;
         }
+
+        return 1;
     }
 
 
