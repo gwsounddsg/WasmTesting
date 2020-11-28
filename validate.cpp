@@ -10,9 +10,9 @@ extern "C" {
 #endif
 
 
-    int ValidateValueProvided(const char* value, const char* errorMessage) {
+    int ValidateValueProvided(const char* value, const char* errorMessage, char* returnErrorMessage) {
         if ((value == NULL) || (value[0] == '\0')) {
-            strcpy(return_error_message, errorMessage);
+            strcpy(returnErrorMessage, errorMessage);
             return 0;
         }
     }
