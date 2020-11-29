@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/gwsounddsg/WasmTesting/issues"
   },
-  "homepage": "https://github.com/gwsounddsg/WasmTesting#readme"
+  "homepage": "https://github.com/gwsounddsg/WasmTesting#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3"
+  }
 }
