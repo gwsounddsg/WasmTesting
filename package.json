@@ -4,7 +4,7 @@
   "description": "",
   "main": "validate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "emcc validate.cpp -o validate.js -s EXTRA_EXPORTED_RUNTIME_METHODS=['ccall','UTF8ToString']"
   },
   "repository": {
     "type": "git",
